@@ -1,14 +1,22 @@
 package com.github.aistomin.mst.domain;
 
+import java.util.Arrays;
+import java.util.List;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 /**
  * Created by aistomin on 08.10.18.
  * <p>
  * All the notes available on the 6-strings guitar in the standard
- * tuning (E-A-D-G-B-E). 1-12 frets. The notes are named according to Helmholtz
- * pitch notation.
+ * tuning (E-A-D-G-B-E). 1-12 frets. Plus notes C-D#.
+ * The notes are named according to Helmholtz pitch notation.
  * http://egalo.com/2012/05/03/notes-on-the-guitar-fretboard-introduction/
  */
 public enum Note {
+    C,
+    Csharp,
+    D,
+    Dsharp,
     E,
     F,
     Fsharp,
@@ -54,5 +62,65 @@ public enum Note {
      */
     public String helmholtzName() {
         return name().replace("_", "'").replace("sharp", "#");
+    }
+
+    /**
+     * Get the list of the simple 12 halftones.
+     *
+     * @return The simple notes.
+     */
+    public static List<Note> simpleNotes() {
+        return Arrays.asList(
+            C,
+            Csharp,
+            D,
+            Dsharp,
+            E,
+            F,
+            Fsharp,
+            G,
+            Gsharp,
+            A,
+            Asharp,
+            B
+        );
+    }
+
+    /**
+     * Scroll through the the notes from current note.
+     */
+    public static class Scroll {
+
+        /**
+         * The current note.
+         */
+        private final Note current;
+
+        /**
+         * The notes.
+         */
+        private final List<Note> notes;
+
+        /**
+         * Ctor.
+         *
+         * @param current The current note.
+         * @param notes   The notes.
+         */
+        public Scroll(Note current, List<Note> notes) {
+            this.current = current;
+            this.notes = notes;
+        }
+
+        /**
+         * Scroll semitones from current position.
+         *
+         * @param semitones The amount of semitones.
+         * @return The new position.
+         */
+        public Note scroll(final Integer semitones) {
+            // TODO: solve in scope of Issue #5
+            throw new NotImplementedException();
+        }
     }
 }
