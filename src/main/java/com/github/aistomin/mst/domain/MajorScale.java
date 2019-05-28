@@ -1,10 +1,11 @@
 package com.github.aistomin.mst.domain;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
  * Created by aistomin on 2019-05-27.
@@ -49,15 +50,15 @@ public final class MajorScale implements Scale {
         this.tonic = tonic;
         final Note.Scroll scroll = new Note.Scroll(this.tonic, notes);
         this.degrees = new ArrayList<>(8);
-        this.degrees.set(0, this.tonic);
+        this.degrees.add(this.tonic);
         // T–T–S–T–T–T–S
-        this.degrees.set(1, scroll.scroll(2));
-        this.degrees.set(2, scroll.scroll(4));
-        this.degrees.set(3, scroll.scroll(5));
-        this.degrees.set(4, scroll.scroll(7));
-        this.degrees.set(5, scroll.scroll(9));
-        this.degrees.set(6, scroll.scroll(11));
-        this.degrees.set(7, scroll.scroll(12));
+        this.degrees.add(scroll.scrollTo(2));
+        this.degrees.add(scroll.scrollTo(4));
+        this.degrees.add(scroll.scrollTo(5));
+        this.degrees.add(scroll.scrollTo(7));
+        this.degrees.add(scroll.scrollTo(9));
+        this.degrees.add(scroll.scrollTo(11));
+        this.degrees.add(scroll.scrollTo(12));
     }
 
     @Override
@@ -66,15 +67,32 @@ public final class MajorScale implements Scale {
     }
 
     @Override
+    public List<Note> notes() {
+        return this.degrees;
+    }
+
+    @Override
     public String toDisplayableString() {
-        // TODO: solve in scope of Issue #5
-        throw new NotImplementedException();
+        return String.format(
+            "%s: %s",
+            this.name(),
+            this.degrees
+                .stream()
+                .map(Note::helmholtzName)
+                .collect(Collectors.joining(", "))
+        );
     }
 
     @Override
     public JSONObject toJson() {
-        // TODO: solve in scope of Issue #5
-        throw new NotImplementedException();
+        final HashMap<String, Object> json = new HashMap<>();
+        json.put("name", this.name());
+        final JSONArray notes = new JSONArray();
+        for (final Note note : this.degrees) {
+            notes.add(note.helmholtzName());
+        }
+        json.put("notes", notes);
+        return new JSONObject(json);
     }
 
     /**

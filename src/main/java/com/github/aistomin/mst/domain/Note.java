@@ -113,14 +113,16 @@ public enum Note {
         }
 
         /**
-         * Scroll semitones from current position.
+         * Scroll certain amount of semitones from the current position.
          *
          * @param semitones The amount of semitones.
          * @return The new position.
          */
-        public Note scroll(final Integer semitones) {
-            // TODO: solve in scope of Issue #5
-            throw new NotImplementedException();
+        public Note scrollTo(final Integer semitones) {
+            final int next = notes.indexOf(current) + semitones;
+            final int size = notes.size();
+            final int loops = next / size;
+            return notes.get(next - size * loops);
         }
     }
 }
