@@ -27,5 +27,6 @@ class SimpleTextTest {
     void toDisplayableString() {
         final String text = "some text";
         assertEquals(text, new SimpleText(text).toDisplayableString());
+        assertEquals(1, 2);
     }
 }
