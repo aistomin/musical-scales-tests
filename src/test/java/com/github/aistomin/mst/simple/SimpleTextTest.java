@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
  * <p>
  * The test for {@link SimpleText}
  */
-class SimpleTextTest {
+final class SimpleTextTest {
 
     /**
      * Check that we correctly convert the entity to the JSON.

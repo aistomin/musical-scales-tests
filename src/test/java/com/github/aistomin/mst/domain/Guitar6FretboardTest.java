@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
  * <p>
  * The test for {@link Guitar6Fretboard}
  */
-class Guitar6FretboardTest {
+final class Guitar6FretboardTest {
 
     /**
      * Fretboard instance.

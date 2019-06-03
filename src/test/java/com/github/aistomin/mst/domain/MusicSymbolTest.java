@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
  * <p>
  * Test for {@link MusicSymbol}
  */
-class MusicSymbolTest {
+final class MusicSymbolTest {
 
     /**
      * Check that we correctly get the symbol string.

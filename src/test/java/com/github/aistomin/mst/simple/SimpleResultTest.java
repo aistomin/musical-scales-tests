@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
  * <p>
  * The test for {@link SimpleResult}
  */
-class SimpleResultTest {
+final class SimpleResultTest {
 
     /**
      * Check that we can correctly create the simple test result if we provide
