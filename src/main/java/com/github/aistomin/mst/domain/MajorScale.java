@@ -100,7 +100,7 @@ public final class MajorScale implements Scale {
      *
      * @return The tonic.
      */
-    Note tonic() {
+    public Note tonic() {
         return this.tonic;
     }
 
@@ -109,7 +109,7 @@ public final class MajorScale implements Scale {
      *
      * @return The supertonic.
      */
-    Note supertonic() {
+    public Note supertonic() {
         return this.degrees.get(1);
     }
 
@@ -118,7 +118,7 @@ public final class MajorScale implements Scale {
      *
      * @return The mediant.
      */
-    Note mediant() {
+    public Note mediant() {
         return this.degrees.get(2);
     }
 
@@ -127,7 +127,7 @@ public final class MajorScale implements Scale {
      *
      * @return The subdominant.
      */
-    Note subdominant() {
+    public Note subdominant() {
         return this.degrees.get(3);
     }
 
@@ -136,7 +136,7 @@ public final class MajorScale implements Scale {
      *
      * @return The dominant.
      */
-    Note dominant() {
+    public Note dominant() {
         return this.degrees.get(4);
     }
 
@@ -145,7 +145,7 @@ public final class MajorScale implements Scale {
      *
      * @return The submediant.
      */
-    Note submediant() {
+    public Note submediant() {
         return this.degrees.get(5);
     }
 
@@ -154,7 +154,7 @@ public final class MajorScale implements Scale {
      *
      * @return The leading tone.
      */
-    Note leadingTone() {
+    public Note leadingTone() {
         return this.degrees.get(6);
     }
 }

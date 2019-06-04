@@ -27,7 +27,10 @@ public final class SimpleAnswer implements Answer {
 
     @Override
     public Boolean validate(final Answer answer) {
-        return answer != null && text.equals(answer.toDisplayableString());
+        return answer != null &&
+            text.toLowerCase().equals(
+                answer.toDisplayableString().toLowerCase()
+            );
     }
 
     @Override
