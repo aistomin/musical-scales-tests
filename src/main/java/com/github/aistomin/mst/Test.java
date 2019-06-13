@@ -8,6 +8,13 @@ package com.github.aistomin.mst;
 public interface Test {
 
     /**
+     * The name of the test.
+     *
+     * @return The test's name.
+     */
+    String name();
+
+    /**
      * Does the test have more questions?
      *
      * @return True - yes; False - no.

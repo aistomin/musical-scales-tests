@@ -6,6 +6,7 @@ import com.github.aistomin.mst.Question;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -22,7 +23,7 @@ final class SimpleTestTest {
     void testRandom() {
         final TestQuestionsProvider provider = new TestQuestionsProvider();
         final List<Question> questions = provider.questions();
-        final SimpleTest test = new SimpleTest(provider);
+        final SimpleTest test = new SimpleTest("Test1", provider);
         int total = 0;
         int correct = 0;
         while (test.hasMoreQuestions()) {
@@ -46,7 +47,7 @@ final class SimpleTestTest {
     void testPassed() {
         final TestQuestionsProvider provider = new TestQuestionsProvider();
         final List<Question> questions = provider.questions();
-        final SimpleTest test = new SimpleTest(provider);
+        final SimpleTest test = new SimpleTest("Test2", provider);
         for (Question item : questions) {
             final Question question = test.nextQuestion();
             question.answer(item.help());
@@ -54,5 +55,16 @@ final class SimpleTestTest {
         }
         assertTrue(test.currentTestResult().isFinished());
         assertTrue(test.currentTestResult().isPassed());
+    }
+
+    /**
+     * Check that we correctly assign the name of the test.
+     */
+    @Test
+    void testName() {
+        final String name = UUID.randomUUID().toString();
+        assertEquals(
+            name, new SimpleTest(name, () -> null).name()
+        );
     }
 }

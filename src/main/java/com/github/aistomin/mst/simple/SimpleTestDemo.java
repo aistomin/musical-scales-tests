@@ -15,7 +15,7 @@ public final class SimpleTestDemo {
     public static void main(final String[] args) {
         new SimpleTestConsole(
             new SimpleTest(
-                new TestQuestionsProvider()
+                "Simple Test", new TestQuestionsProvider()
             )
         ).runTest();
     }

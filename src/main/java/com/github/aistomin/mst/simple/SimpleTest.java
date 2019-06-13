@@ -15,6 +15,11 @@ import java.util.List;
 public final class SimpleTest implements Test {
 
     /**
+     * The test's name.
+     */
+    private final String name;
+
+    /**
      * The list of the questions of the test.
      */
     private final List<Question> questions;
@@ -22,10 +27,17 @@ public final class SimpleTest implements Test {
     /**
      * Ctor.
      *
+     * @param name      The test's name.
      * @param questions Questions provider.
      */
-    public SimpleTest(final QuestionsProvider questions) {
+    public SimpleTest(final String name, final QuestionsProvider questions) {
+        this.name = name;
         this.questions = questions.questions();
+    }
+
+    @Override
+    public String name() {
+        return this.name;
     }
 
     public synchronized Boolean hasMoreQuestions() {
