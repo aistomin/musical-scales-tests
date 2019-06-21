@@ -16,10 +16,10 @@ import java.util.Random;
 /**
  * Created by aistomin on 2019-06-13.
  * <p>
- * Test that checks pupil's knowledge of the notes which are the part of the C
+ * Test that checks pupil's knowledge of the notes which are the part of the certain
  * major scale.
  */
-public final class SimpleCMajorScaleTest implements Test {
+public final class SimpleMajorScaleTest implements Test {
 
     /**
      * Test instance.
@@ -28,14 +28,15 @@ public final class SimpleCMajorScaleTest implements Test {
 
     /**
      * Ctor.
+     *
+     * @param scale The major scale which we want to test.
      */
-    public SimpleCMajorScaleTest() {
-        this.test = new SimpleTest("Simple C Major Scale Test", () -> {
+    public SimpleMajorScaleTest(final MajorScale scale) {
+        this.test = new SimpleTest("Simple Major Scale Test", () -> {
             final ArrayList<Question> questions = new ArrayList<>();
             final List<Note> notes = Note.simpleNotes();
             final Random random = new Random();
             for (int i = 0; i < 10; i++) {
-                final MajorScale scale = new MajorScale(Note.C);
                 final Note note = notes.get(random.nextInt(notes.size()));
                 final String question = String.format(
                     "Is %s the part of %s? Y/N",

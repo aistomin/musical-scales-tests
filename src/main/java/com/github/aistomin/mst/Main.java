@@ -1,8 +1,10 @@
 package com.github.aistomin.mst;
 
+import com.github.aistomin.mst.domain.MajorScale;
+import com.github.aistomin.mst.domain.Note;
 import com.github.aistomin.mst.simple.SimpleTestConsole;
 import com.github.aistomin.mst.tests.MajorScaleDegreesTest;
-import com.github.aistomin.mst.tests.SimpleCMajorScaleTest;
+import com.github.aistomin.mst.tests.SimpleMajorScaleTest;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -19,7 +21,7 @@ public final class Main {
      */
     private final static List<Test> TESTS = Arrays.asList(
         new MajorScaleDegreesTest(),
-        new SimpleCMajorScaleTest()
+        new SimpleMajorScaleTest(new MajorScale(Note.C))
     );
 
     /**
