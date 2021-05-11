@@ -7,6 +7,9 @@
     <groupId>com.github.aistomin</groupId>
     <artifactId>musical-scales-tests</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <properties>
+        <junit-version>5.8.0-M1</junit-version>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
@@ -16,13 +19,13 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>5.3.1</version>
+            <version>${junit-version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.3.1</version>
+            <version>${junit-version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
