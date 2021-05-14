@@ -8,6 +8,7 @@
     <artifactId>musical-scales-tests</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit-version>5.8.0-M1</junit-version>
     </properties>
     <dependencies>
@@ -42,6 +43,7 @@
                 <configuration>
                     <source>8</source>
                     <target>8</target>
+                    <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
             <plugin>
