@@ -2,7 +2,6 @@ package com.github.aistomin.mst.domain;
 
 import java.util.Arrays;
 import java.util.List;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
  * Created by aistomin on 08.10.18.
