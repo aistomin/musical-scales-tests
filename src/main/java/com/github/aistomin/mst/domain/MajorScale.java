@@ -83,6 +83,7 @@ public final class MajorScale implements Scale {
         );
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public JSONObject toJson() {
         final HashMap<String, Object> json = new HashMap<>();
